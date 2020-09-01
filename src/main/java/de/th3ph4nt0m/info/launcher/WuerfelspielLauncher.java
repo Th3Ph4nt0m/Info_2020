@@ -11,6 +11,7 @@ package de.th3ph4nt0m.info.launcher;
 
 public class WuerfelspielLauncher {
 
+    //a main method to excecute the code of the WurfelSpiel-project --> I can't just create objects with a GUI in IntelliJ
     public static void main(String[] s) {
 
     }
