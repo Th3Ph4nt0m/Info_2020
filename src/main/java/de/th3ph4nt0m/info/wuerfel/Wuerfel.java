@@ -11,7 +11,8 @@ package de.th3ph4nt0m.info.wuerfel;
 
 import de.th3ph4nt0m.info.utils.Utils;
 
-public class Wuerfel {
+public class Wuerfel
+{
 
     //initializing attributes/objects/variables
     Utils utils = new Utils();
