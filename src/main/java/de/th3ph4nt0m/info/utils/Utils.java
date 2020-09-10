@@ -4,10 +4,12 @@
  * Utils.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
  *
- * last edit: 2020/9/3
+ * last edit: 2020/9/10
  */
 
 package de.th3ph4nt0m.info.utils;
+
+import java.util.Arrays;
 
 public class Utils
 {
@@ -17,5 +19,12 @@ public class Utils
     {
         int range = (max - min) + 1;
         return (int) ((Math.random() * range) + min);
+    }
+
+    //getting the largest number from an int array
+    public int maxValue(int[] toCount)
+    {
+        int max = Arrays.stream(toCount).max().getAsInt();
+        return max;
     }
 }
