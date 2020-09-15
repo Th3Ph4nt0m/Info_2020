@@ -25,7 +25,6 @@ public class Utils
     //getting the largest number from an int array
     public int maxValue(int[] toCount)
     {
-        int max = Arrays.stream(toCount).max().getAsInt();
-        return max;
+        return Arrays.stream(toCount).max().getAsInt();
     }
 }
