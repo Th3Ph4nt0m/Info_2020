@@ -4,13 +4,14 @@
  * Wuerfel.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
  *
- * last edit: 2020/9/3
+ * last edit: 2020/9/15
  */
 
 package de.th3ph4nt0m.info.wuerfel;
 
 import de.th3ph4nt0m.info.utils.Utils;
 
+@SuppressWarnings({"ConstantConditions", "UnusedReturnValue", "unused", "RedundantSuppression"})
 public class Wuerfel
 {
 

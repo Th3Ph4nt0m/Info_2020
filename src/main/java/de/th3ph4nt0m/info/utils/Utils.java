@@ -4,13 +4,14 @@
  * Utils.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
  *
- * last edit: 2020/9/10
+ * last edit: 2020/9/15
  */
 
 package de.th3ph4nt0m.info.utils;
 
 import java.util.Arrays;
 
+@SuppressWarnings("OptionalGetWithoutIsPresent")
 public class Utils
 {
 

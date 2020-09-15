@@ -11,6 +11,7 @@ package de.th3ph4nt0m.info.wuerfel;
 
 import de.th3ph4nt0m.info.utils.Utils;
 
+@SuppressWarnings({"ForLoopReplaceableByForEach", "unused", "RedundantSuppression"})
 public class Casino
 {
     private final Wuerfelspiel[] spielTische;
