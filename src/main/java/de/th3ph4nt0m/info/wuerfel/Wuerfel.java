@@ -4,7 +4,7 @@
  * Wuerfel.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
  *
- * last edit: 2020/9/15
+ * last edit: 2020/9/17
  */
 
 package de.th3ph4nt0m.info.wuerfel;
@@ -39,8 +39,8 @@ public class Wuerfel
         //declare the array
         int[] array = new int[lenth];
         for (int i = 0; lenth < array.length; i++) {
-            //initialize every int in the array with 1
-            array[i] = 1;
+            //initialize every int in the array with a random number between 0 and 100
+            array[i] = utils.getRandom(0, 100);
         }
         //returns the completed array
         return array;
