@@ -4,7 +4,7 @@
  * Casino.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
  *
- * last edit: 2020/9/17
+ * last edit: 2020/10/27
  */
 
 package de.th3ph4nt0m.info.wuerfel;
@@ -50,7 +50,6 @@ public class Casino
     //print the "results" of the single objects and the winner
     public void spieltischeAusgeben()
     {
-        //TODO tischAugensumme speichert Tischzahl und Ergebnis, gibt diese danach aus
         int[] ii = new int[spielTische.length];
         for (int i = 0; i < spielTische.length; i++) {
             ii[i] = spielTische[i].getAugensumme();
