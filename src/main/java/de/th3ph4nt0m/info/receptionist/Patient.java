@@ -4,7 +4,7 @@
  * Patient.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
  *
- * last edit: 2020/11/12
+ * last edit: 2020/11/22
  */
 
 package de.th3ph4nt0m.info.receptionist;
@@ -12,22 +12,22 @@ package de.th3ph4nt0m.info.receptionist;
 public class Patient
 {
     private final String name;
-    private Patient next;
+//    private Patient next;
 
     public Patient(String pName)
     {
         this.name = pName;
     }
 
-    public Patient getNext()
+/*    public Patient getNext()
     {
         return next;
-    }
+    }*/
 
-    public void setNext(Patient next)
+/*    public void setNext(Patient next)
     {
         this.next = next;
-    }
+    }*/
 
     public String getName()
     {
