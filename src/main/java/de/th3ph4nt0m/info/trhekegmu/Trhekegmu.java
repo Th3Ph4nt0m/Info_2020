@@ -7,6 +7,7 @@ import de.th3ph4nt0m.info.abi.Stack;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class Trhekegmu {
 
     private static final Queue<Integer> q = new Queue<>();
