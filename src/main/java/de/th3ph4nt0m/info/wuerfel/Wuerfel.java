@@ -1,10 +1,8 @@
 /*
- * Copyright (c) 2020 Henrik Steffens aka. Th3Ph4nt0m
+ * Copyright (c) 2021 Henrik Steffens
  *
  * Wuerfel.java is part of the Info_2020 project.
  * Info_2020 is licensed under the MIT license.
- *
- * last edit: 2020/9/30
  */
 
 package de.th3ph4nt0m.info.wuerfel;

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2020 Henrik Steffens aka. Th3Ph4nt0m
+  ~ Copyright (c) 2021 Henrik Steffens
   ~
   ~ pom.xml is part of the Info_2020 project.
   ~ Info_2020 is licensed under the MIT license.
-  ~
-  ~ last edit: 2020/9/10
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
