@@ -41,6 +41,18 @@ public class ShoppingList {
         return success;
     }
 
+    public ShoppingListItem getItemByName(String itemName){
+        boolean success = false;
+        ShoppingListItem item = null;
+        list.toFirst();
+        while (list.hasAccess())
+            if(list.getContent().getName().equalsIgnoreCase(itemName)){
+                item = list.getContent();
+                break;
+            }
+        return item;
+    }
+
     public void printList(){
         list.toFirst();
         while (list.hasAccess()){
