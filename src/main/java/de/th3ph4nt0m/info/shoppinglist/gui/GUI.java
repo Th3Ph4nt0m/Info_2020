@@ -102,13 +102,13 @@ public class GUI extends JFrame {
   
   public void bHinzufugen_ActionPerformed(ActionEvent evt) {
     String eingabe = this.tfShoppingList.getText();
-    this.meinShoppingList.hinzufuegen(eingabe);
+    this.meinShoppingList.add(eingabe);
     this.tfShoppingList.setText("");
     this.tfShoppingList.setText("Bitte neuen Artikel hinzufügen...");
   } // end of bHinzufugen_ActionPerformed
 
   public void bAusgeben_ActionPerformed(ActionEvent evt) {
-    this.jTextArea1.setText(this.meinShoppingList.listeAusgeben());
+    this.jTextArea1.setText(this.meinShoppingList.getList());
     
   } // end of bAusgeben_ActionPerformed
 

@@ -1,73 +1,88 @@
 package de.th3ph4nt0m.info.shoppinglist.gui;
 
+import com.google.gson.Gson;
 import de.th3ph4nt0m.info.abi.List;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
- *
  * Beschreibung
  *
- * @version 1.0 vom 18.02.2021
  * @author T.Roffmann
+ * @version 1.0 vom 18.02.2021
  */
 
 public class ShoppingList {
-  
-  // Anfang Attribute
-  private final List<ShoppingListItem> einkaufsliste;
-  // Ende Attribute
-  
-  public ShoppingList() {
-    this.einkaufsliste = new List<ShoppingListItem>(); // Klammern nicht vergessen :-)
-  }
 
-  // Anfang Methoden
-  public String listeAusgeben() {
-    StringBuilder ausgabe = new StringBuilder("Einkaufsliste:" + "\r\n" + "\r\n");
-    this.einkaufsliste.toFirst();
-    //System.out.println("Einkaufsliste: ");
-    while(this.einkaufsliste.hasAccess())
-    {
-      ausgabe.append(this.einkaufsliste.getContent().getName()).append("\r\n");
-      //System.out.println(this.einkaufsliste.getContent().getName() + " ");
-      this.einkaufsliste.next();
-    }
-    return ausgabe.toString();
-  }
+    // Anfang Attribute
+    private final List<ShoppingListItem> shoppingList;
+    private Gson gson = new Gson();
+    // Ende Attribute
 
-  public void hinzufuegen(String pArtikelName) {
-    ShoppingListItem neuerShoppingListItem;
-    if(!this.suchen(pArtikelName))
-    {
-      neuerShoppingListItem = new ShoppingListItem(pArtikelName);
-      this.einkaufsliste.append(neuerShoppingListItem);
+    public ShoppingList() {
+        this.shoppingList = new List<>(); // Klammern nicht vergessen :-)
     }
-    
-  }
 
-  public void loeschen(String pArtikelName) {
-    if(this.suchen(pArtikelName))
-    {
-      this.einkaufsliste.remove();
+    // Anfang Methoden
+    public String getList() {
+        StringBuilder ausgabe = new StringBuilder("Einkaufsliste:" + "\r\n" + "\r\n");
+        this.shoppingList.toFirst();
+        while (this.shoppingList.hasAccess()) {
+            ausgabe.append(this.shoppingList.getContent().getName()).append("\r\n");
+            this.shoppingList.next();
+        }
+        return ausgabe.toString();
     }
-    else{
-      //System.out.println("Der zu löschende Artikel wurde nicht in der Einkaufsliste gefunden!");
-    }
-    
-  }
 
-  public boolean suchen(String pArtikelName) {
-    this.einkaufsliste.toFirst();
-    while(this.einkaufsliste.hasAccess())
-    {
-      if(this.einkaufsliste.getContent().getName().equals(pArtikelName))
-      {
-        return true;
-      }
-      this.einkaufsliste.next();
-    }
-    return false;
-  }
+    public void add(String pArtikelName) {
+        ShoppingListItem neuerShoppingListItem;
+        if (!this.exists(pArtikelName)) {
+            neuerShoppingListItem = new ShoppingListItem(pArtikelName, 1);
+            this.shoppingList.append(neuerShoppingListItem);
+        }
 
-  // Ende Methoden
+    }
+
+    public void rmv(String pArtikelName) {
+        if (this.exists(pArtikelName)) {
+            this.shoppingList.remove();
+        } else {
+            //System.out.println("Der zu löschende Artikel wurde nicht in der Einkaufsliste gefunden!");
+        }
+
+    }
+
+    public boolean exists(String pArtikelName) {
+        this.shoppingList.toFirst();
+        while (this.shoppingList.hasAccess()) {
+            if (this.shoppingList.getContent().getName().equals(pArtikelName)) {
+                return true;
+            }
+            this.shoppingList.next();
+        }
+        return false;
+    }
+
+/*  public ShoppingListItem getItemByName(String name){
+
+  }*/
+
+    public boolean storeItem(ShoppingListItem item) {
+        try (Writer writer = Files.newBufferedWriter(Paths.get("list.json"))) {
+            gson.toJson(item, writer);
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    // Ende Methoden
 } // end of ShoppingList
 
