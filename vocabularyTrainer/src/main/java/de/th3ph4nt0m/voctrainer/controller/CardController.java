@@ -9,8 +9,17 @@
 
 package de.th3ph4nt0m.voctrainer.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import de.th3ph4nt0m.voctrainer.abi.List;
 import de.th3ph4nt0m.voctrainer.model.Card;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class CardController {
     private final List<Card> vocList;
@@ -25,6 +34,51 @@ public class CardController {
 
     private void readFile(){
 
+        try {
+            // create Gson instance
+            Gson gson = new Gson(); // necessary??
+
+            // create reader
+            Reader reader = Files.newBufferedReader(Paths.get("cards.json"));
+
+            // convert JSON array to list of cards
+            List<Card> cards = new Gson().fromJson(reader, new TypeToken<List<Card>>() {}.getType());
+
+            // add users to original list
+            clearVocList();
+            while (cards.hasAccess()){
+                vocList.append(cards.getContent());
+                cards.next();
+            }
+
+            // close reader
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveFile(){
+        try {
+            // create writer
+            Writer writer = new FileWriter("cards.json");
+
+            // convert card list to JSON file
+            new Gson().toJson(vocList, writer);
+
+            //close writer
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void clearVocList(){
+        while (vocList.hasAccess()){
+            vocList.remove();
+        }
     }
 
     public void setStatus(int newStatus){
