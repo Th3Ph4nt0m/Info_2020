@@ -1,10 +1,13 @@
 package de.th3ph4nt0m.info.shoppinglist.gui;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import de.th3ph4nt0m.info.abi.List;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -76,6 +79,32 @@ public class ShoppingList {
             gson.toJson(item, writer);
             writer.close();
             return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean updateList() {
+        try (Reader reader = Files.newBufferedReader(Paths.get("list.json"))) {
+            List<ShoppingListItem> jsonList = new Gson().fromJson(reader, new TypeToken<List<ShoppingListItem>>() {
+            }.getType());
+
+            // clear the current list
+            while (shoppingList.hasAccess()) {
+                shoppingList.toFirst();
+                shoppingList.remove();
+            }
+
+            // set new list content
+            while (jsonList.hasAccess()) {
+                shoppingList.toFirst();
+                jsonList.toFirst();
+                shoppingList.append(jsonList.getContent());
+                jsonList.remove();
+            }
+            return true;
+
         } catch (IOException e) {
             e.printStackTrace();
             return false;
