@@ -32,7 +32,7 @@ public class CardController {
         vocList.append(card);
     }
 
-    private void readFile(){
+    public void readFile(){
 
         try {
             // create Gson instance
@@ -59,7 +59,7 @@ public class CardController {
         }
     }
 
-    private void saveFile(){
+    public void saveFile(){
         try {
             // create writer
             Writer writer = new FileWriter("cards.json");

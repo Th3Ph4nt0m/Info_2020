@@ -13,7 +13,7 @@ import de.th3ph4nt0m.voctrainer.controller.CardController;
 
 public class Trainer {
 
-    private CardController controller;
+    private final CardController controller;
 
     public Trainer(){
         controller = new CardController();
@@ -32,5 +32,9 @@ public class Trainer {
             }
         }
         return false;
+    }
+
+    public CardController getController() {
+        return controller;
     }
 }
