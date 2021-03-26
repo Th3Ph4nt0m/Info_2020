@@ -41,7 +41,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Main-Class>de.th3ph4nt0m.voctrainer.Trainer</Main-Class>
+                                        <Main-Class>de.th3ph4nt0m.voctrainer.GUI</Main-Class>
                                         <Build-Number>123</Build-Number>
                                     </manifestEntries>
                                 </transformer>
