@@ -53,4 +53,19 @@ public class Cardgame {
         cards[index1] = card2;
         cards[index2] = card1;
     }
+
+    /**
+     * Checks if the given card exists in the deck
+     * @param face Card face as a string
+     * @param value Card value as a string
+     * @return true if the card exists | false if the card not exists
+     */
+    public boolean exists(String face, String value){
+        for (int i = 0; i < cards.length; i++) {
+            if(cards[i].getFace().toString().equalsIgnoreCase(face) && cards[i].toString().equalsIgnoreCase(value)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
