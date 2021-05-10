@@ -61,8 +61,8 @@ public class Cardgame {
      * @return true if the card exists | false if the card not exists
      */
     public boolean exists(String face, String value){
-        for (int i = 0; i < cards.length; i++) {
-            if(cards[i].getFace().toString().equalsIgnoreCase(face) && cards[i].toString().equalsIgnoreCase(value)){
+        for (Card card : cards) {
+            if (card.getFace().toString().equalsIgnoreCase(face) && card.toString().equalsIgnoreCase(value)) {
                 return true;
             }
         }
