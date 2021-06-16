@@ -38,7 +38,23 @@ public class Game {
         return max;
     }
 
+    public int recStart(int amount){
+        return findMaxRec(amount, 0);
+    }
 
+    public int findMaxRec(int amount, int max){
+        int maxx = max;
+
+        if(amount == 0){
+            return max;
+        } else{
+            int round = dice.roll();
+            if(round > max){
+                maxx = round;
+            }
+            return findMaxRec(amount - 1, max);
+        }
+    }
 
     public long intXResultsIterative(int amount) {
         long resp = 0;
