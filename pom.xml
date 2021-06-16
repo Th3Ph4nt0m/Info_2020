@@ -18,6 +18,7 @@
     <modules>
         <module>vocabularyTrainer</module>
         <module>CardGame</module>
+        <module>Dice</module>
     </modules>
 
     <dependencies>
